@@ -1,0 +1,16 @@
+[group:fax_${TTY}]
+programs=iaxmodem_${TTY},fax_recv_${TTY}
+
+[program:iaxmodem_${TTY}]
+command=iaxmodem ${TTY}
+autostart=true
+autorestart=true
+stdout_logfile=/var/log/iaxmodem/${TTY}.log
+stderr_logfile=/var/log/iaxmodem/${TTY}.log
+
+[program:fax_recv_${TTY}]
+command=/usr/local/bin/fax-recv.sh ${TTY}
+autostart=true
+autorestart=true
+stdout_logfile=/var/log/efax/${TTY}.log
+stderr_logfile=/var/log/efax/${TTY}.log

@@ -1,0 +1,16 @@
+services:
+  fax:
+    image: ghcr.io/strexp/tel42fax
+    container_name: tel42fax
+    network_mode: host
+    volumes:
+      - ./iaxmodem:/etc/iaxmodem:ro
+      - ./logs/iaxmodem:/var/log/iaxmodem
+      - ./logs/fax:/var/log/efax
+      - ./incoming:/var/spool/fax/incoming
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "supervisorctl", "status"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
