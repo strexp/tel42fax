@@ -1,7 +1,7 @@
 services:
   fax:
-    image: ghcr.io/strexp/tel42fax
-    container_name: tel42fax
+    image: ghcr.io/strexp/tel42fax-rx
+    container_name: tel42fax-rx
     network_mode: host
     volumes:
       - ./iaxmodem:/etc/iaxmodem:ro

@@ -1,4 +1,4 @@
-# tel42fax
+# tel42fax-rx
 
 A Docker container for receiving faxes over VoIP using IAX modem.
 
